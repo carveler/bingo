@@ -32,28 +32,35 @@ const numLi = document.querySelector('.num_li');
 let spin = true; //true 動作　false　停止
 let show;
 btnStart.addEventListener('click', function () {
-  if (spin) {
-    spin = false;
-    btnStart.textContent = 'Stop';
-    playDrum.play();
-    //showing random numbers
-    show = setInterval(showRandomNum, 30);
-  } else {
-    spin = true;
-    btnStart.textContent = 'Start';
-    playDrum.pause();
-    playDrum.currentTime = 0;
-    clearInterval(show);
-    numContainer.textContent = num;
-    console.log(num);
-    numArr.splice(index, 1);
+  if (numArr.length > 0) {
+    if (spin) {
+      spin = false;
+      btnStart.textContent = 'Stop';
+      btnStart.style.backgroundColor = 'rgb(92, 194, 238)';
 
-    document.querySelector(`.num_li_${num}`).style.color = 'rgb(241, 247, 248)';
-    document.querySelector(`.num_li_${num}`).style.backgroundColor =
-      'rgb(92, 194, 238)';
+      playDrum.play();
+      //showing random numbers
+      show = setInterval(showRandomNum, 30);
+    } else {
+      spin = true;
+      btnStart.textContent = 'Start';
+      btnStart.style.backgroundColor = 'rgb(233, 79, 79)';
+      playDrum.pause();
+      //drum sound reset
+      playDrum.currentTime = 0;
+
+      //stop   show = setInterval(showRandomNum, 30);
+
+      clearInterval(show);
+      numContainer.textContent = num;
+      //delete selected number from array
+      numArr.splice(index, 1);
+
+      //change color if it is selected
+      document.querySelector(`.num_li_${num}`).style.color =
+        'rgb(241, 247, 248)';
+      document.querySelector(`.num_li_${num}`).style.backgroundColor =
+        'rgb(92, 194, 238)';
+    }
   }
-
-  //delete selected number from array
-
-  //change color if it is selected
 });
