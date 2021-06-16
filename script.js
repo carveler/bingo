@@ -29,7 +29,7 @@ for (let i = 1; i < 76; i++) {
 }
 const numLi = document.querySelector('.num_li');
 
-let spin = true; //true 動作　false　停止
+let spin = true; //true spin　false　stop
 let show;
 btnStart.addEventListener('click', function () {
   if (numArr.length > 0) {
@@ -50,7 +50,6 @@ btnStart.addEventListener('click', function () {
       playDrum.currentTime = 0;
 
       //stop   show = setInterval(showRandomNum, 30);
-
       clearInterval(show);
       numContainer.textContent = num;
       //delete selected number from array
