@@ -1,4 +1,7 @@
 # bingo
+
+[Demo](https://bingo-carveler.vercel.app/)
+
 <img src="/bingo.gif" alt="revieu" width="500px"  />
 
 
